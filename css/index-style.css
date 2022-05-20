@@ -1,0 +1,60 @@
+.username {
+  font-size: 2rem;
+  font-family: "Press Start 2P", cursive;
+  border: red solid 10px;
+  text-align: center;
+  padding: 1rem;
+  margin: 3rem 0;
+}
+label {
+  font-size: 2rem;
+}
+.diff-container {
+  padding-bottom: 3rem;
+}
+.difficulty-select {
+  font-family: "Gaegu", cursive;
+  font-size: 2rem;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  /* CHANGE THIS */
+  border: 1px solid #999;
+  color: #1c87c9;
+  background-color: #eee;
+  border-radius: 5px;
+  box-shadow: 4px 4px #ccc;
+}
+.timed-option {
+  display: flex;
+  align-items: center;
+}
+input[type="checkbox"] {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid gray;
+  /* Adjusts the position of the checkboxes on the text baseline */
+  /* vertical-align: -2px; */
+  /* Set here so that Windows' High-Contrast Mode can override */
+  color: green;
+}
+input[type="checkbox"]::before {
+  content: "✔";
+  position: absolute;
+  font-size: 2rem;
+  right: -1px;
+  top: -0.3em;
+  visibility: hidden;
+}
+
+input[type="checkbox"]:checked::before {
+  /* Use `visibility` instead of `display` to avoid recalculating layout */
+  visibility: visible;
+}
+
+/* input[type="checkbox"]:disabled {
+  border-color: black;
+  background: #ddd;
+  color: gray;
+} */
