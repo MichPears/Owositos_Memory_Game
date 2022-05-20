@@ -1,20 +1,26 @@
 body {
   font-family: "Gaegu", cursive;
 }
+
+h1,
+button,
+.username {
+  font-family: "Press Start 2P", cursive;
+}
 .main-container {
   margin: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 3rem;
 }
 h1 {
-  font-family: "Press Start 2P", cursive;
   font-weight: 600;
   font-size: 4rem;
   line-height: 5rem;
   text-align: center;
-  margin-bottom: 3rem;
+  animation: blink 7s;
 }
 p {
   font-size: 2.5rem;
@@ -25,5 +31,49 @@ input {
   appearance: none;
 }
 button {
-  appearance: none;
+  background: none;
+  border: none;
+}
+/* ANIMATIONS */
+@keyframes wonk {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(-7deg);
+  }
+}
+@keyframes unwonk {
+  to {
+    transform: rotate(0);
+  }
+  from {
+    transform: rotate(-7deg);
+  }
+}
+@keyframes blink {
+  from {
+    color: black;
+  }
+  10% {
+    color: black;
+  }
+  20% {
+    color: red;
+  }
+  30% {
+    color: black;
+  }
+  40% {
+    color: red;
+  }
+  50% {
+    color: black;
+  }
+  60% {
+    color: red;
+  }
+  to {
+    color: black;
+  }
 }
