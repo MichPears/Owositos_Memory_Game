@@ -17,16 +17,36 @@ h1 {
   display: grid;
   align-items: center;
   justify-content: center;
+  margin-bottom: 2rem;
 }
 .easy-layout {
   grid-template-columns: repeat(3, auto);
   grid-gap: 3rem;
 }
 .easy {
-  height: 330px;
-  width: 264px;
+  height: 300px;
+  width: 240px;
 }
 .card {
   border: var(--border-color) solid 2px;
   border-radius: 10px;
+}
+.card:hover {
+  transition: 0.2s;
+  animation: wonk 0.5s;
+  transform: rotate(-7deg);
+}
+.end-btn {
+  background-color: red;
+  padding: 1rem;
+  font-size: 1.25rem;
+  transition: 0.2s;
+  animation: unwonk 0.5s;
+}
+.end-btn:hover {
+  background-color: aqua;
+
+  transition: 0.2s;
+  animation: wonk 0.5s;
+  transform: rotate(-7deg);
 }
