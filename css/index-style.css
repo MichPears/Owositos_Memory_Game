@@ -79,9 +79,3 @@ input[type="checkbox"]:checked::before {
   transition: 0.2s;
   animation: unwonk 0.5s;
 }
-.start:hover {
-  background-color: aqua;
-  transition: 0.2s;
-  animation: wonk 0.5s;
-  transform: rotate(-7deg);
-}
