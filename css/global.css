@@ -33,9 +33,21 @@ button:hover {
   animation: wonk 0.5s;
   transform: rotate(-7deg);
 }
+a {
+  text-decoration: none;
+}
+.bg-image {
+  /* background-image: url("../images/owosito_images/Grothmar_Valley_loading_screen.jpg"); */
+  height: 100vh;
+  background-size: cover;
+}
 /* COLORS */
 :root {
-  --border-color: rgb(36, 24, 90);
+  --border-color: rgb(230, 195, 101);
+  --btn-color: rgb(255, 60, 0);
+  --btn-color-hover: purple;
+  --title-color: rgb(12, 12, 68);
+  --box-fill-in: rgb(247, 238, 222);
 }
 /* ANIMATIONS */
 @keyframes wonk {

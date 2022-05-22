@@ -1,3 +1,4 @@
+import settings from "./settings.js";
 const cards = document.querySelectorAll(".card");
 
 cards.forEach((card) => {
@@ -5,3 +6,6 @@ cards.forEach((card) => {
     card.classList.toggle("flipped");
   });
 });
+
+// LOAD SETTINGS
+settings();
