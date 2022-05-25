@@ -39,6 +39,19 @@ h1 {
   height: 300px;
   width: 240px;
 }
+.normal-layout {
+  grid-template-columns: repeat(6, auto);
+  grid-gap: 1.5rem;
+}
+.hard {
+  height: 212px;
+  width: 170px;
+}
+.hard-layout {
+  grid-template-columns: repeat(6, auto);
+  grid-gap: 1.5rem;
+}
+
 .front,
 .back {
   position: absolute;
