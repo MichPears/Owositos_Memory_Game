@@ -40,18 +40,18 @@ let tempPair = [];
 
 cards.forEach((card) => {
   card.addEventListener("click", () => {
-    card.classList.toggle("flipped");
-    //CHECK IF CARDS ARE FLIPPED & ADD TO EMPTY ARRAY
-    if (card.className.includes("flipped") && tempPair.length < 2) {
-      tempPair.push(card);
-      console.log(tempPair);
+    if (!card.className.includes("flipped")) {
+      card.classList.toggle("flipped");
+
+      //CHECK IF CARDS ARE FLIPPED & ADD TO EMPTY ARRAY
+      if (tempPair.length < 2) {
+        tempPair.push(card);
+      }
       //CHECK IF 2 CARDS IN ARRAY ARE THE SAME
       if (
         tempPair.length === 2 &&
         tempPair[0].firstElementChild.src === tempPair[1].firstElementChild.src
       ) {
-        tempPair[0].classList.add("found");
-        tempPair[1].classList.add("found");
         tempPair = [];
       }
       //IF THEY ARE NOT THE SAME DO THIS
