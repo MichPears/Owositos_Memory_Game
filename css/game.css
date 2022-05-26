@@ -79,6 +79,7 @@ h1 {
   transform: rotate(-7deg);
   cursor: pointer;
 }
-.flipped {
+.flipped,
+.found {
   transform: rotateY(180deg);
 }
