@@ -1,0 +1,6 @@
+make lil score calculator
+
+
+make scoreboard page
+
+table

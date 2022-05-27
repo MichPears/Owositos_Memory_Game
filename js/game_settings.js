@@ -1,5 +1,8 @@
 import { settings } from "./settings.js";
 
+//NO SETTINGS
+if (settings === null) window.location.href = "index.html";
+
 // USERNAME
 const username = document.querySelector(".game_username");
 
@@ -8,6 +11,7 @@ username.innerHTML = settings.username.toUpperCase();
 //TIMER
 const timerDisplay = document.querySelector(".game_timer");
 const showTime = document.querySelector(".time-display");
+const youLoseSign = document.querySelector(".you-lose");
 
 let timer;
 let timeLeft;
@@ -20,9 +24,11 @@ if (settings.difficulty === "easy") {
 }
 
 // What to do when the timer runs out
-function gameOver() {
+function youLose() {
   // This cancels the setInterval, so the updateTimer stops getting called
   clearInterval(timer);
+  youLoseSign.classList.toggle("hidden");
+  settings.isGameOver = true;
 }
 
 function updateTimer() {
@@ -30,7 +36,7 @@ function updateTimer() {
   if (timeLeft >= 0) {
     timerDisplay.innerHTML = timeLeft;
   } else {
-    gameOver();
+    youLose();
   }
 }
 function startTimer() {
@@ -44,3 +50,22 @@ if (settings.timedMode) {
 } else {
   showTime.style.display = "none";
 }
+
+//GIVE UP BUTTON
+const giveUpBtn = document.querySelector(".end-btn");
+const areYouSureSign = document.querySelector(".are-you-sure");
+const continueBtn = document.querySelector(".no");
+
+giveUpBtn.addEventListener("click", () => {
+  if (!settings.isGameOver) {
+    areYouSureSign.classList.toggle("hidden");
+  } else {
+    window.location.href = "scoreboard.html";
+  }
+});
+
+continueBtn.addEventListener("click", () =>
+  areYouSureSign.classList.toggle("hidden")
+);
+
+export { giveUpBtn };

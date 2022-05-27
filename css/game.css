@@ -4,6 +4,9 @@
 h1 {
   font-size: 3rem;
 }
+h2 {
+  font-size: 5rem;
+}
 .sizing-container {
   width: 1200px;
   text-align: center;
@@ -15,6 +18,9 @@ h1 {
   display: flex;
   justify-content: space-between;
   padding: 1.5rem 0;
+}
+.stats p {
+  width: 400px;
 }
 .end-btn {
   background-color: var(--btn-color);
@@ -81,4 +87,62 @@ h1 {
 }
 .flipped {
   transform: rotateY(180deg);
+}
+
+/* SIGNS */
+.you-win,
+.you-lose,
+.are-you-sure {
+  position: fixed;
+  background-color: wheat;
+  height: 400px;
+  width: 1000px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+.you-win p,
+.you-lose p,
+.are-you-sure p {
+  padding: 1rem 5rem;
+}
+.you-win {
+  background-color: var(--you-win-color);
+  box-shadow: white 0 0 10px;
+}
+.you-lose {
+  background-color: var(--btn-color);
+  box-shadow: black 0 0 10px;
+}
+.are-you-sure {
+  background-color: var(--are-you-sure);
+  box-shadow: black 0 0 10px;
+}
+.are-you-sure p {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+.btn-container {
+  display: flex;
+  gap: 3rem;
+}
+.yes,
+.no {
+  font-size: 1rem;
+  padding: 1rem;
+}
+.yes {
+  background-color: var(--btn-color);
+}
+.no {
+  background-color: var(--you-win-color);
+}
+.hidden {
+  display: none;
 }

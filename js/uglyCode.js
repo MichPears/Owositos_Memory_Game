@@ -1,3 +1,5 @@
+import { giveUpBtn } from "./game_settings.js";
+
 // IMAGE ARRAY
 const cardFrontArr = [
   "./images/owosito_images/owo1.png",
@@ -42,4 +44,21 @@ function shuffle(array) {
   return array;
 }
 
-export { cardFrontArr, createCard, shuffle, cardsContainer };
+const youWinSign = document.querySelector(".you-win");
+
+//FUNC TO CHECK IF YOU WIN
+const youWin = (settings, solvedCards) => {
+  if (
+    (settings.difficulty === "easy" && solvedCards.length === 6) ||
+    (settings.difficulty === "normal" && solvedCards.length === 12) ||
+    (settings.difficulty === "hard" && solvedCards.length === 18)
+  ) {
+    youWinSign.classList.toggle("hidden");
+    settings.isGameOver = true;
+    giveUpBtn.innerHTML = "Next";
+  }
+};
+
+//SCORE FUNC
+
+export { cardFrontArr, createCard, shuffle, cardsContainer, youWin };

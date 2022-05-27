@@ -3,12 +3,14 @@ body {
 }
 
 h1,
+h2,
 button,
 .username {
   font-family: "Press Start 2P", cursive;
 }
 
-h1 {
+h1,
+h2 {
   font-weight: 600;
   line-height: 5rem;
   text-align: center;
@@ -24,6 +26,7 @@ input {
 button {
   background: none;
   border: none;
+  box-shadow: var(--title-color) 3px 3px 10px;
 }
 button:hover {
   cursor: pointer;
@@ -45,9 +48,10 @@ a {
 :root {
   --border-color: rgb(230, 195, 101);
   --btn-color: rgb(255, 60, 0);
-  --btn-color-hover: purple;
   --title-color: rgb(12, 12, 68);
   --box-fill-in: rgb(247, 238, 222);
+  --you-win-color: rgb(253, 207, 80);
+  --are-you-sure: rgb(147, 67, 201);
 }
 /* ANIMATIONS */
 @keyframes wonk {

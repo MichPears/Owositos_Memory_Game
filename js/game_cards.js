@@ -4,6 +4,7 @@ import {
   createCard,
   shuffle,
   cardsContainer,
+  youWin,
 } from "./uglyCode.js";
 
 //SHUFFLE ARRAY
@@ -37,10 +38,11 @@ gameBoard.forEach((element) => {
 // FLIP
 const cards = document.querySelectorAll(".card");
 let tempPair = [];
+let solvedCards = [];
 
 cards.forEach((card) => {
   card.addEventListener("click", () => {
-    if (!card.className.includes("flipped")) {
+    if (!card.className.includes("flipped") && !settings.isGameOver) {
       card.classList.toggle("flipped");
 
       //CHECK IF CARDS ARE FLIPPED & ADD TO EMPTY ARRAY
@@ -52,6 +54,8 @@ cards.forEach((card) => {
         tempPair.length === 2 &&
         tempPair[0].firstElementChild.src === tempPair[1].firstElementChild.src
       ) {
+        solvedCards.push(tempPair[0], tempPair[1]);
+        youWin(settings, solvedCards);
         tempPair = [];
       }
       //IF THEY ARE NOT THE SAME DO THIS
