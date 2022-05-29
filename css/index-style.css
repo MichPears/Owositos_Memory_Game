@@ -18,7 +18,7 @@ h1 {
 }
 .username {
   font-size: 2rem;
-  border: red solid 10px;
+  border: var(--btn-color) solid 10px;
   text-align: center;
   padding: 1rem;
 }
@@ -36,7 +36,6 @@ label {
   text-align: center;
   padding: 0.5rem 1rem;
   font-weight: 600;
-  /* CHANGE THIS */
   border: 1px solid #999;
   color: #1c87c9;
   background-color: #eee;
@@ -52,9 +51,7 @@ input[type="checkbox"] {
   width: 2rem;
   height: 2rem;
   border: 2px solid gray;
-  /* Adjusts the position of the checkboxes on the text baseline */
-  /* vertical-align: -2px; */
-  /* Set here so that Windows' High-Contrast Mode can override */
+
   color: green;
   background-color: wheat;
 }
@@ -72,15 +69,9 @@ input[type="checkbox"]:checked::before {
   visibility: visible;
 }
 
-/* input[type="checkbox"]:disabled {
-  border-color: black;
-  background: #ddd;
-  color: gray;
-} */
-
 .start {
   font-size: 2.5rem;
-  background-color: red;
+  background-color: var(--btn-color);
   padding: 2rem;
   transition: 0.2s;
   animation: unwonk 0.5s;

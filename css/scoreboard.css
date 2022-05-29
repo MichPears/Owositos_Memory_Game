@@ -1,0 +1,34 @@
+.table-heading {
+  font-size: 2rem;
+}
+.score-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+table {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+table,
+th,
+td {
+  border: 4mm ridge var(--you-win-color);
+}
+td,
+th {
+  padding: 1rem;
+}
+th {
+  background-color: var(--card-color);
+}
+td {
+  background-color: var(--box-fill-in);
+}
+.start {
+  background-color: var(--btn-color);
+  padding: 1rem;
+  font-size: 1.25rem;
+  transition: 0.2s;
+  animation: unwonk 0.5s;
+}

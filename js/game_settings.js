@@ -2,6 +2,7 @@ import { settings } from "./settings.js";
 
 //NO SETTINGS
 if (settings === null) window.location.href = "index.html";
+if (settings.isGameOver) window.location.href = "index.html";
 
 // USERNAME
 const username = document.querySelector(".game_username");
@@ -29,6 +30,7 @@ function youLose() {
   clearInterval(timer);
   youLoseSign.classList.toggle("hidden");
   settings.isGameOver = true;
+  localStorage.setItem("settings", JSON.stringify(settings));
 }
 
 function updateTimer() {
@@ -51,6 +53,10 @@ if (settings.timedMode) {
   showTime.style.display = "none";
 }
 
+const stopTimer = () => {
+  clearInterval(timer);
+};
+
 //GIVE UP BUTTON
 const giveUpBtn = document.querySelector(".end-btn");
 const areYouSureSign = document.querySelector(".are-you-sure");
@@ -68,4 +74,4 @@ continueBtn.addEventListener("click", () =>
   areYouSureSign.classList.toggle("hidden")
 );
 
-export { giveUpBtn };
+export { giveUpBtn, stopTimer, timeLeft };

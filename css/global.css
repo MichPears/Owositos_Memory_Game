@@ -5,7 +5,8 @@ body {
 h1,
 h2,
 button,
-.username {
+.username,
+.table-heading {
   font-family: "Press Start 2P", cursive;
 }
 
@@ -15,7 +16,8 @@ h2 {
   line-height: 5rem;
   text-align: center;
 }
-p {
+p,
+td {
   font-size: 2.5rem;
   text-align: center;
 }
@@ -30,7 +32,7 @@ button {
 }
 button:hover {
   cursor: pointer;
-  background-color: aqua;
+  background-color: var(--btn-hover-color);
 
   transition: 0.2s;
   animation: wonk 0.5s;
@@ -40,7 +42,6 @@ a {
   text-decoration: none;
 }
 .bg-image {
-  /* background-image: url("../images/owosito_images/Grothmar_Valley_loading_screen.jpg"); */
   height: 100vh;
   background-size: cover;
 }
@@ -52,6 +53,8 @@ a {
   --box-fill-in: rgb(247, 238, 222);
   --you-win-color: rgb(253, 207, 80);
   --are-you-sure: rgb(147, 67, 201);
+  --card-color: rgb(152, 200, 255);
+  --btn-hover-color: rgb(0, 255, 191);
 }
 /* ANIMATIONS */
 @keyframes wonk {
@@ -78,19 +81,19 @@ a {
     color: black;
   }
   20% {
-    color: red;
+    color: var(--btn-color);
   }
   30% {
     color: black;
   }
   40% {
-    color: red;
+    color: var(--btn-color);
   }
   50% {
     color: black;
   }
   60% {
-    color: red;
+    color: var(--btn-color);
   }
   to {
     color: black;

@@ -2,5 +2,11 @@ make lil score calculator
 
 
 make scoreboard page
++5 every match
+-2 every mismatch
+
++ easy time left x1
++ medium time left x1.5
++ hard time left x10
 
 table

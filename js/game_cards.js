@@ -5,6 +5,7 @@ import {
   shuffle,
   cardsContainer,
   youWin,
+  updateScore,
 } from "./uglyCode.js";
 
 //SHUFFLE ARRAY
@@ -39,6 +40,7 @@ gameBoard.forEach((element) => {
 const cards = document.querySelectorAll(".card");
 let tempPair = [];
 let solvedCards = [];
+const scoreDisplay = document.querySelector(".scoreNum");
 
 cards.forEach((card) => {
   card.addEventListener("click", () => {
@@ -49,13 +51,16 @@ cards.forEach((card) => {
       if (tempPair.length < 2) {
         tempPair.push(card);
       }
-      //CHECK IF 2 CARDS IN ARRAY ARE THE SAME
+      //CHECK IF 2 CARDS IN ARRAY ARE A MATCH
       if (
         tempPair.length === 2 &&
         tempPair[0].firstElementChild.src === tempPair[1].firstElementChild.src
       ) {
         solvedCards.push(tempPair[0], tempPair[1]);
-        youWin(settings, solvedCards);
+
+        updateScore("match", settings, scoreDisplay);
+        youWin(settings, solvedCards, scoreDisplay);
+
         tempPair = [];
       }
       //IF THEY ARE NOT THE SAME DO THIS
@@ -70,6 +75,7 @@ cards.forEach((card) => {
         }, 500);
 
         tempPair = [];
+        updateScore("no-match", settings, scoreDisplay);
       }
     }
   });

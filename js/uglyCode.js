@@ -1,4 +1,4 @@
-import { giveUpBtn } from "./game_settings.js";
+import { giveUpBtn, stopTimer, timeLeft } from "./game_settings.js";
 
 // IMAGE ARRAY
 const cardFrontArr = [
@@ -47,7 +47,7 @@ function shuffle(array) {
 const youWinSign = document.querySelector(".you-win");
 
 //FUNC TO CHECK IF YOU WIN
-const youWin = (settings, solvedCards) => {
+const youWin = (settings, solvedCards, scoreDisplay) => {
   if (
     (settings.difficulty === "easy" && solvedCards.length === 6) ||
     (settings.difficulty === "normal" && solvedCards.length === 12) ||
@@ -56,9 +56,42 @@ const youWin = (settings, solvedCards) => {
     youWinSign.classList.toggle("hidden");
     settings.isGameOver = true;
     giveUpBtn.innerHTML = "Next";
+    stopTimer();
+    if (settings.difficulty === "easy" && settings.timedMode)
+      updateScore("easy", settings, scoreDisplay);
+    if (settings.difficulty === "normal" && settings.timedMode)
+      updateScore("normal", settings, scoreDisplay);
+    if (settings.difficulty === "hard" && settings.timedMode)
+      updateScore("hard", settings, scoreDisplay);
+    if (settings.isGameOver && !settings.timedMode)
+      updateScore("", settings, scoreDisplay);
   }
 };
 
 //SCORE FUNC
 
-export { cardFrontArr, createCard, shuffle, cardsContainer, youWin };
+const highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+
+const updateScore = (match, settings, scoreDisplay) => {
+  if (match === "match") settings.score = settings.score + 5;
+  if (match === "no-match") settings.score = settings.score - 2;
+  if (match === "easy") settings.score = settings.score + timeLeft;
+  if (match === "normal") settings.score = settings.score + timeLeft * 2;
+  if (match === "hard") settings.score = settings.score + timeLeft * 10;
+  if (settings.isGameOver) {
+    highscores.push(settings);
+    localStorage.setItem("highscores", JSON.stringify(highscores));
+  }
+
+  scoreDisplay.innerHTML = settings.score;
+  localStorage.setItem("settings", JSON.stringify(settings));
+};
+
+export {
+  cardFrontArr,
+  createCard,
+  shuffle,
+  cardsContainer,
+  youWin,
+  updateScore,
+};

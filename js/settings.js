@@ -10,6 +10,7 @@ const setSettings = () => {
       difficulty: diffSelect.value,
       timedMode: timedModeCheck.checked,
       isGameOver: false,
+      score: 0,
     };
     localStorage.setItem("settings", JSON.stringify(settings));
   });
