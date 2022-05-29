@@ -1,4 +1,5 @@
 import { giveUpBtn, stopTimer, timeLeft } from "./game_settings.js";
+import { settings } from "./settings.js";
 
 // IMAGE ARRAY
 const cardFrontArr = [
@@ -72,15 +73,21 @@ const youWin = (settings, solvedCards, scoreDisplay) => {
 
 const highscores = JSON.parse(localStorage.getItem("highscores")) || [];
 
+const checkHighScore = (highscores, settings) => {
+  highscores.push(settings);
+  highscores.sort(({ score: a }, { score: b }) => b - a);
+  if (highscores.length > 7) highscores.pop();
+  localStorage.setItem("highscores", JSON.stringify(highscores));
+};
+
 const updateScore = (match, settings, scoreDisplay) => {
   if (match === "match") settings.score = settings.score + 5;
   if (match === "no-match") settings.score = settings.score - 2;
   if (match === "easy") settings.score = settings.score + timeLeft;
-  if (match === "normal") settings.score = settings.score + timeLeft * 2;
-  if (match === "hard") settings.score = settings.score + timeLeft * 10;
+  if (match === "normal") settings.score = settings.score + timeLeft;
+  if (match === "hard") settings.score = settings.score + timeLeft;
   if (settings.isGameOver) {
-    highscores.push(settings);
-    localStorage.setItem("highscores", JSON.stringify(highscores));
+    checkHighScore(highscores, settings);
   }
 
   scoreDisplay.innerHTML = settings.score;

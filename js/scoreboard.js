@@ -2,8 +2,6 @@ const highscores = JSON.parse(localStorage.getItem("highscores")) || [];
 const highscoreRow = document.querySelectorAll(".highscore-row");
 const table = document.querySelector("table");
 
-highscores.sort(({ score: a }, { score: b }) => b - a);
-
 let remainder = 6 - highscores.length;
 
 const createRow = (username, difficulty, score) => {

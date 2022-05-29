@@ -17,11 +17,11 @@ const youLoseSign = document.querySelector(".you-lose");
 let timer;
 let timeLeft;
 if (settings.difficulty === "easy") {
-  timeLeft = 60; // seconds
+  timeLeft = 10; // seconds
 } else if (settings.difficulty === "normal") {
-  timeLeft = 30;
+  timeLeft = 20;
 } else if (settings.difficulty === "hard") {
-  timeLeft = 10;
+  timeLeft = 30;
 }
 
 // What to do when the timer runs out
