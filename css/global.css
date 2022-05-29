@@ -6,10 +6,14 @@ h1,
 h2,
 button,
 .username,
-.table-heading {
+.table-heading,
+.mobile {
   font-family: "Press Start 2P", cursive;
 }
 
+.mobile {
+  display: none;
+}
 h1,
 h2 {
   font-weight: 600;
@@ -97,5 +101,18 @@ a {
   }
   to {
     color: black;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .main-container {
+    display: none;
+  }
+  .mobile {
+    display: block;
+    padding: 3rem 1rem;
+    font-size: 1.5rem;
+    color: var(--title-color);
+    text-align: center;
   }
 }

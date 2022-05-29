@@ -1,5 +1,6 @@
 .bg-image {
-  background-image: url("../images/bg-images/background-image-second-whitest.png");
+  background: url("../images/bg-images/background-image-second-whitest.png")
+    no-repeat center center fixed;
 }
 h1 {
   font-size: 4rem;
