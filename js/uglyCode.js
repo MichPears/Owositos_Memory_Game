@@ -71,13 +71,26 @@ const youWin = (settings, solvedCards, scoreDisplay) => {
 
 //SCORE FUNC
 
-const highscores = JSON.parse(localStorage.getItem("highscores")) || [];
-
-const checkHighScore = (highscores, settings) => {
-  highscores.push(settings);
-  highscores.sort(({ score: a }, { score: b }) => b - a);
-  if (highscores.length > 7) highscores.pop();
-  localStorage.setItem("highscores", JSON.stringify(highscores));
+const postHighscore = (settings) => {
+  const data = {
+    score: {
+      username: settings.username,
+      difficulty: settings.difficulty,
+      timed_mode: settings.timedMode,
+      score: settings.score,
+    },
+  };
+  try {
+    fetch("https://owosito-scoreboard-api.herokuapp.com/scores", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const updateScore = (match, settings, scoreDisplay) => {
@@ -87,7 +100,7 @@ const updateScore = (match, settings, scoreDisplay) => {
   if (match === "normal") settings.score = settings.score + timeLeft;
   if (match === "hard") settings.score = settings.score + timeLeft;
   if (settings.isGameOver) {
-    checkHighScore(highscores, settings);
+    postHighscore(settings);
   }
 
   scoreDisplay.innerHTML = settings.score;
